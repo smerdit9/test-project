@@ -1,0 +1,292 @@
+{
+  "paints": [
+    {
+      "id": "1",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "2",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "3",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "4",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "5",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "6",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "7",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "8",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "9",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "10",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "11",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "12",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "13",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "14",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "15",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "16",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "17",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "18",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "19",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "20",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "21",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "22",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "23",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "24",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "25",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "26",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "27",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "28",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "29",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "30",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "31",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "32",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "33",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "34",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "35",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "36",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "37",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "38",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "39",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "40",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "41",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "42",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1845"
+    },
+    {
+      "id": "43",
+      "title": "Unequal marriage",
+      "image": "/img/image-3.jpg",
+      "year": "1761"
+    },
+    {
+      "id": "44",
+      "title": "Portrait of Vincent van Gogh",
+      "image": "/img/image-2.jpg",
+      "year": "1886"
+    },
+    {
+      "id": "45",
+      "title": "cascate di tivoli",
+      "image": "/img/image-1.jpg",
+      "year": "1862"
+    },
+    {
+      "id": "46",
+      "title": "Golfo di Napoli",
+      "image": "/img/image-6.jpg",
+      "year": "1624"
+    },
+    {
+      "id": "47",
+      "title": "The happy Violinist",
+      "image": "/img/image-4.jpg",
+      "year": "1834"
+    },
+    {
+      "id": "48",
+      "title": "The Arcadian",
+      "image": "/img/image-5.jpg",
+      "year": "1845"
+    }
+  ]
+}

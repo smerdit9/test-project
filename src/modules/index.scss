@@ -1,0 +1,32 @@
+@use './variables';
+@use './vertical-rhythm';
+@use './normalize';
+
+$primary-white: #ffffff;
+$primary-black: #121212;
+$primary-light-gray: #dedede;
+$primary-dark-gray: #575757;
+
+$secondary-white: #fcfcfc;
+$secondary-black: #1a1818;
+$secondary-gray: #9c9c9c;
+
+$accent-red: #9b4b4b;
+$accent-gold: #ab8956;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: $primary-light-gray;
+  background-color: $primary-black;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $primary-black;
+}

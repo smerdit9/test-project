@@ -1,0 +1,15 @@
+@use '../modules/index.scss';
+@use '../modules/header';
+@use '../modules/search';
+@use '../modules/gallery';
+@use '../modules/container';
+
+.app {
+  &.dark {
+    background-color: index.$primary-black;
+  }
+
+  &.light {
+    background-color: index.$primary-white;
+  }
+}

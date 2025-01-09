@@ -1,0 +1,114 @@
+@use './index.scss';
+
+.search {
+  margin-bottom: 20px;
+
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-img {
+    width: 16px;
+    height: 16px;
+    margin-right: 14px;
+  }
+
+  &-input {
+    border: none;
+    padding: 0;
+    outline: 0;
+    margin-right: 20px;
+    height: 20px;
+    width: 242px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+
+    &.dark {
+      color: index.$primary-light-gray;
+      background-color: index.$secondary-black;
+
+      &::placeholder {
+        color: index.$primary-dark-gray;
+      }
+    }
+
+    &.light {
+      color: index.$primary-dark-gray;
+      background-color: index.$primary-white;
+
+      &::placeholder {
+        color: index.$secondary-gray;
+      }
+    }
+  }
+
+  &-close-temp {
+    display: block;
+    width: 8px;
+    height: 8px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &-close-img {
+    display: none;
+
+    &.visible {
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 4px;
+
+  &.dark {
+    background-color: index.$secondary-black;
+
+    &:focus-within {
+      border: 1px solid index.$primary-light-gray;
+      padding: 7px 17px;
+    }
+  }
+
+  &.light {
+    background-color: index.$primary-white;
+    border: 1px solid index.$primary-light-gray;
+    padding: 7px 18px;
+
+    &:focus-within {
+      border: 1px solid index.$primary-dark-gray;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    width: 202px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    width: 186px;
+    height: 19px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .input-container {
+    padding: 7px 18px;
+
+    &.light {
+      padding: 6px 18px;
+    }
+  }
+}

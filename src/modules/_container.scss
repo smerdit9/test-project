@@ -1,0 +1,19 @@
+@use '../modules/index.scss';
+
+.app.dark .container {
+  box-sizing: border-box;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+  background-color: index.$primary-black;
+}
+
+.app.light .container {
+  box-sizing: border-box;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+  background-color: index.$primary-white;
+}
