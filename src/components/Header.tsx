@@ -7,10 +7,12 @@ import { Props } from './Container';
 export default function Header({ isDark, setIsDark }: Props) {
   return (
     <header className="header">
+      {/* Логотип, зависит от темы */}
       <Logo
         isDark={isDark}
         setIsDark={setIsDark}
       />
+      {/* Кнопка смены темы */}
       <Theme
         isDark={isDark}
         setIsDark={setIsDark}

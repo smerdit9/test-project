@@ -15,10 +15,11 @@ export default function Search({
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setInputValue(value);
-    onSearch(e.target.value);
+    setInputValue(value); // Обновляем значение инпута
+    onSearch(e.target.value); // Передаем новое значение поисковому запросу
   };
 
+  // Очищаем инпут и поисковый запрос
   const clearInput = () => {
     setInputValue('');
     onSearch('');
@@ -31,21 +32,22 @@ export default function Search({
           <img
             className="search-img"
             src={isDark ? SearchImgDark : SearchImgLight}
-            alt=""
+            alt="Поиск"
           />
           <input
             onChange={onChange}
             value={inputValue}
             className={`search-input ${isDark ? 'dark' : 'light'}`}
-            placeholder="Painting title"
+            placeholder="Название картины"
             type="text"
           />
+          {/* Иконка закрытия поиска */}
           <div
             className={`search-close-temp ${inputValue ? 'hidden' : ''}`}></div>
           <img
             className={`search-close-img ${inputValue ? 'visible' : ''}`}
             src={isDark ? SearchCloseDark : SearchCloseLight}
-            alt="Close"
+            alt="Закрыть"
             onClick={clearInput}
           />
         </div>

@@ -5,7 +5,7 @@ import { queryClient } from '../script/query-client';
 import { useState } from 'react';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(true); // Хранение состояния темы
   return (
     <div className={`app ${isDark ? 'dark' : 'light'}`}>
       <QueryClientProvider client={queryClient}>

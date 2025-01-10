@@ -1,42 +1,64 @@
 import axios from 'axios';
 
-const FIRST_API_URL = 'http://localhost:3000';
-
-export type Paginated<T> = {
-  first: number;
-  prev: number | null;
-  next: number | null;
-  last: number;
-  pages: number;
-  items: number;
-  data: T[];
-};
+const FIRST_API_URL = 'https://test-front.framework.team';
 
 export type Paints = {
-  id: string;
-  title: string;
-  image: string;
-  year: string;
+  authorId: number;
+  created: string;
+  id: number;
+  imageUrl: string;
+  locationId: number;
+  name: string;
 };
 
 export const galleryApi = {
   getGalleryElements: async (
     { page }: { page: number },
     { signal }: { signal: AbortSignal }
-  ): Promise<Paginated<Paints>> => {
-    const response = await axios.get<Paginated<Paints>>(
-      `${FIRST_API_URL}/paints?_page=${page}&_per_page=6`,
+  ): Promise<{ paints: Paints[]; totalItems: number }> => {
+    const response = await axios.get<Paints[]>(
+      `${FIRST_API_URL}/paintings?_page=${page}&_limit=6`,
       { signal }
     );
-    return response.data;
+
+    const totalItems = parseInt(response.headers['x-total-count'] || '0', 10);
+    return { paints: response.data, totalItems };
   }
 };
 
 export const getPaintByTitle = async (
   paintTitle: string
 ): Promise<Paints[]> => {
-  const response = await axios.get(`${FIRST_API_URL}/paints`);
-  return response.data.filter((paint: { title: string }) =>
-    paint.title.toLowerCase().includes(paintTitle.toLowerCase())
+  const response = await axios.get(
+    `${FIRST_API_URL}/paintings?q=${paintTitle}`
   );
+  return response.data;
+};
+
+export type Author = {
+  id: number;
+  name: string;
+};
+
+export type Location = {
+  id: number;
+  location: string;
+};
+
+export const getAuthors = async (): Promise<Author[]> => {
+  try {
+    const response = await axios.get(`${FIRST_API_URL}/authors`);
+    return response.data || [];
+  } catch (error) {
+    return [];
+  }
+};
+
+export const getLocations = async (): Promise<Location[]> => {
+  try {
+    const response = await axios.get(`${FIRST_API_URL}/locations`);
+    return response.data || [];
+  } catch (error) {
+    return [];
+  }
 };

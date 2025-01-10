@@ -1,7 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { galleryApi, getPaintByTitle } from '../script/api';
+import {
+  galleryApi,
+  getPaintByTitle,
+  getAuthors,
+  getLocations
+} from '../script/api';
 import { useState, useEffect } from 'react';
-import { Paints } from '../script/api';
+import { Paints, Author, Location } from '../script/api';
 
 interface GalleryProps {
   filteredData: Paints[];
@@ -12,6 +17,7 @@ interface GalleryProps {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
+// Основной компонент галереи
 export default function Gallery({
   filteredData,
   setFilteredData,
@@ -21,6 +27,7 @@ export default function Gallery({
   return (
     <section className="gallery">
       <div className="gallery-container">
+        {/* Компонент для отображения элементов галереи */}
         <GalleryElements
           isDark={isDark}
           filteredData={filteredData}
@@ -45,29 +52,38 @@ function GalleryElements({
   searchQuery,
   isDark
 }: GalleryElementsProps) {
-  const [page, setPage] = useState(1);
-  const [totalItems, setTotalItems] = useState(0);
-  const itemsPerPage = 6;
+  const [page, setPage] = useState(1); // Страница для пагинации
+  const [totalItems, setTotalItems] = useState(0); // Общее количество элементов
+  const [authors, setAuthors] = useState<Author[]>([]); // Данные авторов
+  const [locations, setLocations] = useState<Location[]>([]); // Данные локаций
+  const itemsPerPage = 6; // Количество элементов на одной странице
 
   const { data, error, isLoading } = useQuery({
     queryKey: ['paints', { page }],
     queryFn: (meta) => galleryApi.getGalleryElements({ page }, meta),
-    enabled: !searchQuery,
+    enabled: !searchQuery, // Запрос будет выполнен, если нет поискового запроса
     staleTime: 5000
   });
 
   useEffect(() => {
+    // Запросы для получения данных авторов и локаций
+    getAuthors().then((data) => setAuthors(data));
+    getLocations().then((data) => setLocations(data));
+
     if (searchQuery) {
+      // Если есть поисковый запрос, фильтруем картины по названию
       getPaintByTitle(searchQuery).then((data) => {
         setFilteredData(data);
         setTotalItems(data.length);
       });
     } else if (data) {
-      setFilteredData(data.data);
-      setTotalItems(data.items);
+      // Если данных нет, используем данные с сервера
+      setFilteredData(data.paints);
+      setTotalItems(data.totalItems);
     }
-  }, [searchQuery, setFilteredData, data]);
+  }, [searchQuery, data, setFilteredData]);
 
+  // Сбрасываем страницу при изменении поискового запроса
   useEffect(() => {
     if (searchQuery) {
       setPage(1);
@@ -76,13 +92,18 @@ function GalleryElements({
 
   const paginateData = (data: Paints[], page: number, itemsPerPage: number) => {
     const startIndex = (page - 1) * itemsPerPage;
-    return data.slice(startIndex, startIndex + itemsPerPage);
+    return data.slice(startIndex, startIndex + itemsPerPage); // Обрезаем данные для пагинации
   };
 
   const displayData = searchQuery
     ? paginateData(filteredData, page, itemsPerPage)
-    : filteredData;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+    : filteredData; // Данные для отображения в зависимости от поиска
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage); // Рассчитываем общее количество страниц
+
+  if (!Array.isArray(displayData)) {
+    return <div>Ошибка данных</div>;
+  }
 
   if (isLoading) {
     return <div>Загрузка...</div>;
@@ -94,6 +115,7 @@ function GalleryElements({
 
   return (
     <>
+      {/* Если нет данных, выводим сообщение о том, что не найдены картины */}
       {displayData.length === 0 ? (
         <div>
           <p className={`no-matches-title ${isDark ? 'dark' : 'light'}`}>
@@ -107,41 +129,49 @@ function GalleryElements({
           </p>
         </div>
       ) : (
-        displayData.map((Paint) => (
-          <div
-            key={Paint.id}
-            className="gallery-element">
-            <img
-              src={Paint.image}
-              alt={Paint.title}
-            />
+        // Отображаем картины
+        displayData.map((Paint) => {
+          const author = authors.find((author) => author.id === Paint.authorId);
+          const location = locations.find(
+            (location) => location.id === Paint.locationId
+          );
+
+          return (
             <div
-              className={`gallery-info-container ${isDark ? 'dark' : 'light'}`}>
+              key={Paint.id}
+              className="gallery-element">
+              <img
+                src={`https://test-front.framework.team${Paint.imageUrl}`}
+                alt={Paint.name}
+              />
               <div
-                className={`gallery-info-container-content ${
-                  isDark ? 'dark' : 'light'
-                }`}>
-                <div className="info-content-default">
-                  <p className={`paint-title ${isDark ? 'dark' : 'light'}`}>
-                    {Paint.title.toUpperCase()}
-                  </p>
-                  <p className={`paint-year ${isDark ? 'dark' : 'light'}`}>
-                    {Paint.year}
-                  </p>
-                </div>
-                <div className="info-content-animation">
-                  <p className={`paint-title ${isDark ? 'dark' : 'light'}`}>
-                    {'jean-honore fragonard'.toUpperCase()}
-                  </p>
-                  <p className={`paint-year ${isDark ? 'dark' : 'light'}`}>
-                    {'Louvre museum'.toUpperCase()}
-                  </p>
+                className={`gallery-info-container ${isDark ? 'dark' : 'light'}`}>
+                <div
+                  className={`gallery-info-container-content ${isDark ? 'dark' : 'light'}`}>
+                  <div className="info-content-default">
+                    <p className={`paint-title ${isDark ? 'dark' : 'light'}`}>
+                      {Paint.name.toUpperCase()}
+                    </p>
+                    <p className={`paint-year ${isDark ? 'dark' : 'light'}`}>
+                      {Paint.created}
+                    </p>
+                  </div>
+                  <div className="info-content-animation">
+                    <p className={`paint-title ${isDark ? 'dark' : 'light'}`}>
+                      {author ? author.name.toUpperCase() : ''}
+                    </p>
+                    <p className={`paint-year ${isDark ? 'dark' : 'light'}`}>
+                      {location ? location.location.toUpperCase() : ''}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))
+          );
+        })
       )}
+
+      {/* Отображение пагинации, если есть несколько страниц */}
       {totalPages > 1 && (
         <Pagination
           isDark={isDark}

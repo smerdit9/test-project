@@ -10,13 +10,13 @@ export interface Props {
 }
 
 export default function Container({ isDark, setIsDark }: Props) {
-  const [page, setPage] = useState(1);
-  const [filteredData, setFilteredData] = useState<Paints[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [page, setPage] = useState(1); // Страница для пагинации
+  const [filteredData, setFilteredData] = useState<Paints[]>([]); // Фильтрованные данные
+  const [searchQuery, setSearchQuery] = useState(''); // Поисковый запрос
 
   const handleSearch = (query: string) => {
-    setPage(1);
-    setSearchQuery(query);
+    setPage(1); // Сбрасываем страницу при новом поиске
+    setSearchQuery(query); // Устанавливаем новый запрос
   };
 
   return (
